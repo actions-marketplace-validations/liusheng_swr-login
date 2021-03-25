@@ -1,7 +1,7 @@
 {
   "name": "swr-login",
   "version": "1.0.0",
-  "main": "src/index.js",
+  "main": "src/login.js",
   "scripts": {
     "lint": "eslint .",
     "prepare": "ncc build src/login.js -o dist --source-map --license licenses.txt",
