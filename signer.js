@@ -1,6 +1,6 @@
 // HWS API Gateway Signature
 (function(root, factory) {
-
+  
   /*global define*/
   if (typeof define === 'function' && define.amd) {
     // AMD
@@ -41,7 +41,7 @@
     root.signer = factory(crypto_wrapper, root.moment)
   }
 }(this, function(crypto_wrapper, moment) {
-
+  
   var BasicDateFormat = 'YYYYMMDDTHHmmss[Z]'
   var Algorithm = 'SDK-HMAC-SHA256'
   var HeaderXDate = 'X-Sdk-Date'
@@ -260,6 +260,7 @@
     }
     return a.join('\n') + '\n'
   }
+
   function SignedHeaders(r) {
     var a = []
     for (var key in r.headers) {
