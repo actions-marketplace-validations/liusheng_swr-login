@@ -3,6 +3,11 @@ const qs = require('querystring')
 const signer = require('./signer')
 const sig = new signer.Signer()
 
+module.exports = {
+  init_sign,
+  http_request
+}
+
 /**
  *  Set the AK/SK to sign and authenticate the request.
  * @param {*} config { AccessKey, SecretKey }

@@ -3,7 +3,7 @@ Use this GitHub Action to [log in to a private container registry](https://docs.
 ```yaml
 - uses: aliyun/swr-login@v1
   with:
-    region: '<region id>' # example: cn-hangzhou
+    region: '<region id>' # example: ap-southeast-3
     access-key-id: '<access key id>'
     access-key-secret: '<access key secret>'
 ```
