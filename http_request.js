@@ -19,16 +19,18 @@ function init_sign(config) {
 
 async function http_request(method, url, query, body) {
   if (process.env.HW_HTTP_DEBUG === 'true') {
+    console.debug(`===http_request begin===`)
+    console.debug(`${method} - ${url}`)
     if (query || body) {
       console.debug(`${JSON.stringify({ query, body })}`)
     }
     console.debug(`======================`)
   }
   try {
-    let resp = await __hw_request(method, url, query, body)
+    let resp = await __http_request(method, url, query, body)
 
     if (process.env.HW_HTTP_DEBUG === 'true') {
-      console.debug(`===hw_request end===`)
+      console.debug(`===http_request end===`)
       console.debug(`${method} - ${url}`)
       if (resp) {
         console.debug(`${JSON.stringify(resp)}`)
@@ -39,7 +41,7 @@ async function http_request(method, url, query, body) {
     return resp
   } catch (err) {
     if (process.env.HW_HTTP_DEBUG === 'true') {
-      console.error(`===hw_request error===`)
+      console.error(`===http_request error===`)
       console.error(`${method} - ${url}`)
       if (err.response) {
         // The request was made and the server responded with a status code
@@ -62,7 +64,7 @@ async function http_request(method, url, query, body) {
   }
 }
 
-async function __hw_request(method, url, query, body) {
+async function __http_request(method, url, query, body) {
   const r = new signer.HttpRequest(method, url)
   r.headers = { 'Content-Type': 'application/json' }
   if (query) {
@@ -77,6 +79,8 @@ async function __hw_request(method, url, query, body) {
     url,
     headers: r.headers
   }
+  console.debug(`liusheng-----------------------debug----`)
+  console.debug(`${JSON.stringify(r.headers)} - ${JSON.stringify(reqOpts)}`)
   if (query) {
     reqOpts.params = query
     reqOpts.paramsSerializer = function(params) {
