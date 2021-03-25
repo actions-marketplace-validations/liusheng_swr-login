@@ -9,8 +9,8 @@ inputs:
     description: 'Secret access key'
     required: true
     default: ''
-  region-id:
-    description: 'Region id'
+  region:
+    description: 'Region'
     required: false
     default: 'ap-southeast-3'
 branding:

@@ -5,7 +5,7 @@ const sig = new signer.Signer()
 
 module.exports = {
   init_sign,
-  hw_request
+  http_request
 }
 
 /**
@@ -17,10 +17,8 @@ function init_sign(config) {
   sig.Secret = config.SecretKey
 }
 
-async function hw_request(method, url, query, body) {
+async function http_request(method, url, query, body) {
   if (process.env.HW_HTTP_DEBUG === 'true') {
-    console.debug(`===hw_request begin===`)
-    console.debug(`${method} - ${url}`)
     if (query || body) {
       console.debug(`${JSON.stringify({ query, body })}`)
     }
@@ -79,8 +77,6 @@ async function __hw_request(method, url, query, body) {
     url,
     headers: r.headers
   }
-  console.debug(`liusheng-----------------------debug----`)
-  console.debug(`${JSON.stringify(r.headers)} - ${JSON.stringify(reqOpts)}`)
   if (query) {
     reqOpts.params = query
     reqOpts.paramsSerializer = function(params) {
