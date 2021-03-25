@@ -11150,12 +11150,9 @@ const http_request = __webpack_require__(8649);
 
 
 async function run() {
-//    let ak = core.getInput('access-key-id', { required: true });
-//    let sk = core.getInput('access-key-secret', { required: true });
-//    let region = core.getInput('region', { required: true });
-    let ak = "3CCZSBGGU0YSJEZSGYZQ";
-    let sk = "tMwlXC2iva4EzlgZDpD8EUccXOU7mHWMcwTZpHEj";
-    let region = "ap-southeast-3";
+    let ak = core.getInput('access-key-id', { required: true });
+    let sk = core.getInput('access-key-secret', { required: true });
+    let region = core.getInput('region', { required: true });
     let url = `https://swr-api.${region}.myhuaweicloud.com/v2/manage/utils/secret?projectname=${region}`;
     http_request.init_sign({AccessKey:`${ak}`, SecretKey:`${sk}`});
     config = await http_request.http_request("POST", url, "", {});
