@@ -7,3 +7,5 @@ Use this GitHub Action to [log in to a private container registry](https://docs.
     access-key-id: '<access key id>'
     access-key-secret: '<access key secret>'
 ```
+## Reference
+The AK/SK signature algorithm implementation and http request is refer to [hwcce-k8s](https://www.npmjs.com/package/hwcce-k8s).
