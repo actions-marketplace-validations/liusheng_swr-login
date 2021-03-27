@@ -20,6 +20,8 @@ async function run() {
     await io.mkdirP(dirPath);
     const dockerConfigPath = path.join(dirPath, `config.json`);
     core.debug(`Writing docker config contents to ${dockerConfigPath}`);
+    config = JSON.stringify(config)
+    core.setSecret(config)
     fs.writeFileSync(dockerConfigPath, JSON.stringify(config));
     core.exportVariable('DOCKER_CONFIG', dirPath);
     console.log('DOCKER_CONFIG environment variable is set');
